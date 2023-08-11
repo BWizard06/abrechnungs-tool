@@ -1,0 +1,33 @@
+generator client {
+  provider        = "prisma-client-js"
+}
+
+
+datasource db {
+  provider             = "mysql"
+  url                  = env("DATABASE_URL")
+  relationMode         = "prisma"
+}
+
+model Projekt {
+  id             Int              @id @default(autoincrement())
+  name           String
+  kunde          String?
+  rechnungen     Rechnung[]
+}
+
+model Rechnung {
+  id                Int      @id @default(autoincrement())
+  projekt_id        Int
+  leistung          String?
+  lieferant         String?
+  beschreibung      String?
+  re_datum          DateTime?
+  betrag_exkl       Float?
+  betrag_inkl       Float?
+  offerte           Float?
+  differenz         Float?
+  an_kde_verrechnet DateTime?
+  user_name         String?
+  projekt           Projekt  @relation(fields: [projekt_id], references: [id], onDelete: Cascade)
+}
