@@ -59,7 +59,6 @@ export default function CreateBillForm() {
         }
     };
 
-    // Checkt beim Laden der Komponente, ob der User eingeloggt ist
 
     // Projekte beim Laden der Komponente abrufen
     useEffect(() => {

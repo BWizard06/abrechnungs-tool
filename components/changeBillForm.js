@@ -24,7 +24,6 @@ export default function changeBillForm() {
         return parseFloat(num.replace(/[^0-9.]/g, ''));
     }
     
-
     // Rechnung beim Laden der Komponente abrufen
     useEffect(() => {
         if (billId) {
