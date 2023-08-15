@@ -20,6 +20,11 @@ export default function changeBillForm() {
     const [successMessage, setSuccessMessage] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
 
+    const cleanNumber = (num) => {
+        return parseFloat(num.replace(/[^0-9.]/g, ''));
+    }
+    
+
     // Rechnung beim Laden der Komponente abrufen
     useEffect(() => {
         if (billId) {
@@ -49,11 +54,12 @@ export default function changeBillForm() {
 
     const handleSubmit = async () => {
         const token = localStorage.getItem("user_token");
+        const cleanedBetrag_exkl = cleanNumber(betrag_exkl);
+        const cleanedOfferte = cleanNumber(offerte);
 
         // Berechnete Werte
-        const berechneteDifferenz =
-            (parseFloat(betrag_exkl) || 0) - (parseFloat(offerte) || 0);
-        const betrag_inkl = (parseFloat(betrag_exkl) || 0) * 1.077;
+        const berechneteDifferenz = cleanedBetrag_exkl - cleanedOfferte;
+        const betrag_inkl = cleanedBetrag_exkl * 1.077;
 
         // Daten für die Aktualisierung vorbereiten
         const updatedBill = {
@@ -63,9 +69,9 @@ export default function changeBillForm() {
             lieferant,
             beschreibung,
             re_datum,
-            betrag_exkl: parseFloat(betrag_exkl) || 0,
+            betrag_exkl: cleanedBetrag_exkl || 0,
             betrag_inkl,
-            offerte: parseFloat(offerte) || 0,
+            offerte: cleanedOfferte || 0,
             differenz: berechneteDifferenz,
             an_kde_verrechnet,
         };

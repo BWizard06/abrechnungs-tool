@@ -16,10 +16,16 @@ export default function CreateBillForm() {
     const [successMessage, setSuccessMessage] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
 
+    const cleanNumber = (num) => {
+        return parseFloat(num.replace(/[^0-9.]/g, ''));
+    }
+
     // Funktion zum Absenden des Formulars
     const handleSubmit = async () => {
-        const berechneteDifferenz = parseFloat(betrag_exkl) - parseFloat(offerte);
-        const betrag_inkl = parseFloat(betrag_exkl) * 1.077;
+        const cleanedBetrag_exkl = cleanNumber(betrag_exkl);
+        const cleanedOfferte = cleanNumber(offerte);
+        const berechneteDifferenz = cleanedBetrag_exkl - cleanedOfferte;
+        const betrag_inkl = cleanedBetrag_exkl * 1.077;
         const token = localStorage.getItem("user_token");
 
         const data = {
@@ -28,9 +34,9 @@ export default function CreateBillForm() {
             lieferant,
             beschreibung,
             re_datum,
-            betrag_exkl,
+            betrag_exkl: cleanedBetrag_exkl,
             betrag_inkl,
-            offerte,
+            offerte: cleanedOfferte,
             differenz: berechneteDifferenz,
             an_kde_verrechnet,
         };
