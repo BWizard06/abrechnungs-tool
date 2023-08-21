@@ -10,4 +10,4 @@ Die Programmierung einer Lieferanten-Software, mit der Mitarbeiter dezentral Lie
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Prisma](https://www.prisma.io/)
 - [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)
-- ![Screenshot 2023-08-21 183853](https://github.com/BWizard06/abrechnungs-tool/assets/89217401/332f9916-21bf-4f46-a752-65de1cc485c4)
+![Screenshot 2023-08-21 183853](https://github.com/BWizard06/abrechnungs-tool/assets/89217401/332f9916-21bf-4f46-a752-65de1cc485c4)
