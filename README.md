@@ -12,6 +12,5 @@ Die Programmierung einer Lieferanten-Software, mit der Mitarbeiter dezentral Lie
 - [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)
 ![Screenshot 2023-08-21 183853](https://github.com/BWizard06/abrechnungs-tool/assets/89217401/332f9916-21bf-4f46-a752-65de1cc485c4)
 ![Screenshot 2023-08-21 184407](https://github.com/BWizard06/abrechnungs-tool/assets/89217401/ba1aa0a3-b593-4a97-bb1d-86ed225b9365)
-![Screenshot 2023-08-21 183853](https://github.com/BWizard06/abrechnungs-tool/assets/89217401/73f47ef9-07fc-489a-84a2-c1b6e38cc6e2)
-
+![Screenshot 2023-08-21 184321](https://github.com/BWizard06/abrechnungs-tool/assets/89217401/0d0d1cfe-bfa5-4ec5-9e52-d918837482ee)
 
