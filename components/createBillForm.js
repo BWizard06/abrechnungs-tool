@@ -20,12 +20,16 @@ export default function CreateBillForm() {
         return parseFloat(num.replace(/[^0-9.]/g, ''));
     }
 
+    function roundTo05CHF(amount) {
+        return Math.round(amount * 20) / 20;
+    }
+
     // Funktion zum Absenden des Formulars
     const handleSubmit = async () => {
         const cleanedBetrag_exkl = cleanNumber(betrag_exkl);
         const cleanedOfferte = cleanNumber(offerte);
         const berechneteDifferenz = cleanedBetrag_exkl - cleanedOfferte;
-        const betrag_inkl = cleanedBetrag_exkl * 1.077;
+        const betrag_inkl = roundTo05CHF(cleanedBetrag_exkl * 1.077);
         const token = localStorage.getItem("user_token");
 
         const data = {
